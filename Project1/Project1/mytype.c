@@ -122,20 +122,20 @@ void Airbattle(Allihator heli)
 
 	while (heli.hp > 0 && OG_Mi_2->hp > 0)
 	{
-		printf("Would you like to do. Print 'A' to attack. Print 'D' to dodge.\n");
+		printf("Would you like to do. Print '1' to attack. Print '0' to dodge.\n");
 
 		char action = '\0';
-		scanf_s("%c", &action);
-		if (action == 'A')
+		scanf_s("%d", &action);
+		if (action == 1)
 		{
-			printf("Choose ammo. Print 'R' to use rocket launcher. Print 'M' to use machine gun.\n");
-			scanf_s("%c", &action);
+			printf("Choose ammo. Print '2' to use rocket launcher. Print '3' to use machine gun.\n");
+			scanf_s("%d", &action);
 
 			int G_action = rand() % 3;
 
 			if (G_action == 1)
 			{
-				if (action == 'R')
+				if (action == 2)
 				{
 					int strikes = rand() % 5;
 					if (strikes > heli.rockets)
@@ -148,7 +148,7 @@ void Airbattle(Allihator heli)
 					printf("You cause %d damage. Left %d fuel, %d rockets, %d bullets.\n", 95*hits, heli.fuel, heli.rockets, heli.bullets);
 				}
 
-				if (action == 'M')
+				if (action == 3)
 				{
 					int strikes = rand() % 50;
 					if (strikes > heli.bullets)
@@ -175,7 +175,7 @@ void Airbattle(Allihator heli)
 
 			if (G_action == 2)
 			{
-				if (action == 'R')
+				if (action == 2)
 				{
 					int strikes = rand() % 5;
 					if (strikes > heli.rockets)
@@ -188,7 +188,7 @@ void Airbattle(Allihator heli)
 					printf("You cause %d damage. Left %d fuel, %d rockets, %d bullets.\n", 95 * hits, heli.fuel, heli.rockets, heli.bullets);
 				}
 
-				if (action == 'M')
+				if (action == 3)
 				{
 					int strikes = rand() % 50;
 					if (strikes > heli.bullets)
@@ -215,7 +215,7 @@ void Airbattle(Allihator heli)
 
 			if (G_action == 0)
 			{
-				if (action == 'R')
+				if (action == 2)
 				{
 					int strikes = rand() % 5;
 					if (strikes > heli.rockets)
@@ -228,7 +228,7 @@ void Airbattle(Allihator heli)
 					printf("You cause %d damage. Left %d fuel, %d rockets, %d bullets.\n", 95 * hits, heli.fuel, heli.rockets, heli.bullets);
 				}
 
-				if (action == 'M')
+				if (action == 3)
 				{
 					int strikes = rand() % 50;
 					if (strikes > heli.bullets)
@@ -245,7 +245,7 @@ void Airbattle(Allihator heli)
 			}
 		}
 
-		if (action == 'D')
+		if (action == 0)
 		{
 			int G_action = rand() % 3;
 			if (G_action == 1)
@@ -279,8 +279,8 @@ void Airbattle(Allihator heli)
 			printf("Left %d fuel, %d rockets, %d bullets.\n", heli.fuel, heli.rockets, heli.bullets);
 		}
 
-		if (action != 'A' && action != 'D')
-			printf("Print 'A' to attack. Print 'D' to dodge.\n");
+		if (action != 1 && action != 2 && action != 3 && action != 0)
+			printf("Print 1 to attack. Print 0 to dodge.\n");
 
 		if (OG_Mi_2->fuel <= 0)
 		{
